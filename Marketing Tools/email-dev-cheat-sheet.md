@@ -227,7 +227,7 @@ This is the same as web dev but images are frequently blocked by default in emai
 
 ```html
 <!-- Descriptive alt text for content images -->
-<img src="product.png" width="300" alt="Red leather weekend bag with brass fittings"
+<img src="product.png" width="300" alt="Children's s blue raincoat with hood"
      style="display: block; width: 100%; max-width: 300px; height: auto;">
 
 <!-- Empty alt for decorative images — screen readers skip these -->
@@ -255,7 +255,7 @@ Here's an example snippet for a centred, fixed-width container with a fluid fall
 <![endif]-->
 
 <div style="max-width: 600px; margin: 0 auto;">
-  Your content here
+  ADD CONTENT HERE
 </div>
 
 <!--[if mso]>
@@ -350,6 +350,8 @@ Typical breakpoint pattern:
 ### B. Fluid / hybrid design — RECOMMENDED
 This seems to be the safest and most widely supported approach. It uses percentage-based widths and `max-width` constraints so layouts adapt without needing media queries. 
 Outlook gets fixed-width fallbacks via conditional comments; all other clients get fluid layouts.
+> [Tutorial from Email on Acid](https://www.emailonacid.com/blog/article/email-development/a-fluid-hybrid-design-primer/)
+
 > "The fluid part refers to the fact that we use lots of percentages and elements that can move and expand to fit the space they are given. The hybrid part is because we also use max-width to constrain these free-flowing elements."
 > — [Envato Tuts+](https://webdesign.tutsplus.com/creating-a-future-proof-responsive-email-without-media-queries--cms-23919t)
 
@@ -395,7 +397,7 @@ This example is fluid hybrid stacking (see section 6.B above -- it uses no media
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
       <td style="padding: 20px; font-family: Arial, sans-serif; font-size: 16px;">
-        Left column content
+        Left column content -- TEXT OR IMAGE
       </td>
     </tr>
   </table>
@@ -424,9 +426,8 @@ This example is fluid hybrid stacking (see section 6.B above -- it uses no media
 <![endif]-->
 ```
 
-The example above uses the fluid hybrid method (Approach B), which works 
-everywhere including Gmail. 
-A media query version is simpler to write but won't stack in Gmail web or GANGA. TO crate, use Approach A's breakpoint pattern, targeting `.column` `<td>` elements with `display: block !important; width: 100% !important;` at your chosen breakpoint. Both approaches are valid but the fluid hybrid method is more universally compatible.
+The example above uses the fluid hybrid method (Approach B), which works  everywhere including Gmail. 
+A media query version is simpler to write but won't stack in Gmail web or GANGA. TO crate this, use Approach A's breakpoint pattern, targeting `.column` `<td>` elements with `display: block !important; width: 100% !important;` at your chosen breakpoint. Both approaches are valid but the fluid hybrid method is more universally compatible.
 
 ---
 
@@ -442,7 +443,7 @@ Design emails so they degrade acceptably when clients do whatever they want to y
 Layer CSS techniques on top as progressive enhancement for clients that support them, but even this is hard to clarify.
 
 > "While @media (prefers-color-scheme: dark) is widely supported, client-specific behaviors (like Outlook's [data-ogsc] or Gmail web's aggressive auto-inversion) mean you can't always achieve pixel-perfect control everywhere."
-> — [Jeffrey Overmeer](https://www.jeffreyovermeer.com/how-to-code-dark-mode-email-seamless-css-guide)
+> — [Jeffrey Overmeer, "How to code dark mode email: A seamless CSS guide"](https://www.jeffreyovermeer.com/how-to-code-dark-mode-email-seamless-css-guide)
 
 ---
 
@@ -493,7 +494,7 @@ It produces unnatural results on photographs and is not reliably supported acros
 
 ---
 
-### Approach 2, CSS Techniques — progressive enhancements only (ie this gets progressively better as the email client's capabilities increase — it doesn't break for anyone, it just improves for some)
+### Approach 2, CSS Techniques — progressive enhancements only (ie this gets progressively better as the email client's capabilities increase — it shouldn't break for anyone, just improves for some) but TEST THOROUGHLY
 
 These only function when your `<style>` block is in `<head>` and the client honours it.
 
@@ -516,7 +517,7 @@ This signals to supporting clients (LIST TK) that you are aware of dark mode, wh
 @media (prefers-color-scheme: dark) {
   .email-body   { background-color: #1a1a1a !important; }
   .text-primary { color: #f0f0f0 !important; }
-  .btn          { background-color: #ffffff !important; color: #000000 !important; }
+  .btn { background-color: #ffffff !important; color: #000000 !important; }
 }
 ```
 Use `!important` on every rule — you are competing against inline styles.
@@ -572,12 +573,12 @@ These are design decisions, not CSS — they apply regardless of client support.
 ### Dark Mode Decision Hierarchy
 
 ```
-1. Transparent PNG?          → Works everywhere. Do this.
-2. Mid-range brand colours?  → Reduces inversion damage everywhere. Do this.
-3. Color-scheme meta tags?   → Prevents worst-case full inversion in some clients. Low effort. Do this.
+1. Transparent PNG? → Works everywhere. Do this.
+2. Mid-range brand colours? → Reduces inversion damage everywhere. Do this.
+3. Color-scheme meta tags? → Prevents worst-case full inversion in some clients. Low effort. Do this.
 4. prefers-color-scheme CSS? → Custom dark theme for Apple Mail, Outlook Mac, Samsung. Worth doing.
-5. [data-ogsc] CSS?          → Extends #4 to Outlook.com and Outlook Android. Mirror your rules.
-6. Image swap CSS?           → Polish for Apple Mail / Outlook Mac only. Not a fix for Gmail. **NOT WORTH THE EFFORT UNLESS YOU KNOW A SIGNIFICANT PORTION OF YOUR AUDIENCE USES THESE CLIENTS.**
+5. [data-ogsc] CSS? → Extends #4 to Outlook.com and Outlook Android. Mirror your rules.
+6. Image swap CSS? → Polish for Apple Mail / Outlook Mac only. Not a fix for Gmail. **NOT WORTH THE EFFORT UNLESS YOU KNOW A SIGNIFICANT PORTION OF YOUR AUDIENCE USES THESE CLIENTS.**
 ```
 
 
@@ -641,13 +642,13 @@ Key practices:
 
 Despite the constraints, there are advantages to email.
 
-**Direct channel with no algorithm.** Unlike social media, you own your list. There's no algorithm deciding whether your content reaches subscribers.
+**Direct channel with no algorithm.** Unlike social media, you own your list.
 
-**High ROI.** Email consistently outperforms other marketing channels in return on investment.
-> "Email marketing returns $36 for every $1 spent."
+**High ROI.** Email consistently outperforms other marketing channels in return on investment. There are lots of stats in the links below, presumably for commercial u but it seems very promising for all users:
+> "Email marketing returns [well]."
 > — [Litmus](https://www.litmus.com/blog/why-email-deliverability-matters)
 
-**Forced simplicity.** The constraints prevent scope creep. You can't build something complicated, which often produces cleaner, faster, more focused experiences.
+**Forced simplicity.** The constraints prevent scope creep. You can't build something complicated, which often produces cleaner, more focused experiences.
 
 **Constraints sharpen fundamentals.** 
 
@@ -662,28 +663,32 @@ Despite the constraints, there are advantages to email.
 ## 11. Other things
 
 ### Email size limits (Gmail clipping)
-Gmail clips emails larger than **102KB** of HTML, showing a "View entire message" link. Keep HTML lean. Use a minifier and avoid inline base64 images.
+Gmail clips emails larger than 1002kb of HTML, showing a "View entire message" link. Keep HTML lean. Use a minifier and avoid inline base64 images. Source: [Litmus, 2024](https://www.litmus.com/blog/how-to-keep-gmail-from-clipping-your-emails)
 
 ### Use preheader text
 EN provides this via the editor's UI. The preview text shown in the inbox after the subject line. It should be set explicitly in the UI, otherwise email clients grab content unpredictably from your email.
 ```html
 <span style="display:none; max-height:0; overflow:hidden;">
-  Your preheader text here.
+  ADD PREHEADER TEXT
 </span>
 ```
 
 ### Template Versioning
+Marketing Tools allows for multiple folders and easy copying of blocks and templates, so make a test version of anything you're working on, as it's easy to accidentally overwrite the original/functional code.
 > "Don't change your layouts or designs without working on a new version of your template that can be designed, properly tested, and deployed."
 > — [Martech Zone](https://martech.zone/understanding-the-challenges-and-frustrations-of-html-email-design/)
 
-### Email frameworks / tooling
-- **[MJML](https://mjml.io)** — Markup language that compiles to responsive email HTML
-- **[Foundation for Emails](https://get.foundation/emails.html)** (Zurb) — CSS framework for email
-- **[Maizzle](https://maizzle.com)** — Tailwind CSS-based email framework
-- these handle many Outlook quirks and responsive patterns automatically.
+### Email frameworks / tooling -- these need to be used outside of EN
+They require a build step to compile down to the kind of HTML that is useful. They can speed up development and handle quirks, but add complexity and may not be worth it for simple updates.
+A big benefit of these is that they allow you to write more semantic, modern HTML/CSS, and then compile it down to the table-based, inline style-heavy code that email clients require. ALSO they should handle Outlook quirks and responsive patterns automatically.
+- **[MJML](https://mjml.io)** — Markup language that compiles to responsive email HTML. Works with EN: write in MJML, compile to HTML, paste the output into EN's HTML editor. MJML itself does not run inside EN.
+- **[Foundation for Emails](https://get.foundation/emails.html)** (Zurb) — CSS framework for email. Same workflow as MJML: compile first, paste HTML into EN.
+- **[Maizzle](https://maizzle.com)** — Tailwind CSS-based email framework. Same workflow as above.
 
-### Highly formatted emails reduce engagement
+### Over/highly formatted emails may reduce engagement
+> (Research from 2025)[https://blog.hubspot.com/marketing/plain-text-vs-html-emails-data]
 > "Research by leading marketing companies, like Hubspot, have also found that highly formatted emails with lots of HTML, color, and images reduce engagement by 25% on average and click through rates of 51%."
 > — [Finalsite](https://schooladmin.zendesk.com/hc/en-us/articles/6219140568973)
+
 
 
