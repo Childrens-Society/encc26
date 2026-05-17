@@ -1,4 +1,4 @@
-# Email development cheat sheets
+# Email development cheat sheet
 
 This was a cheat sheet but became unwieldy. The structure is:
 1. Useful resources
