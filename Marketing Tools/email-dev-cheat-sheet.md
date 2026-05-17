@@ -1,6 +1,8 @@
 # Email development cheat sheet
 
-This was a cheat sheet but became unwieldy. The structure is:
+This was meant to be a brief "cheat sheet" but it's became unwieldy. 
+
+The structure:
 1. Useful resources
 2. How far behind is email development?
 3. What you cannot use
