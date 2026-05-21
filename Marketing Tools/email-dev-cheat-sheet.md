@@ -112,7 +112,8 @@ These seem to be the backbone of email layout, and are the only reliably cross-c
 `border="0"` removes the default table border. `role="presentation"` tells screen readers to skip the table structure.
 
 
-![Alt text](https://c.tenor.com/_n_jxpQJ7b4AAAAd/tenor.gif)
+![A gif of the actor Tim Robinson saying "Tables!"](https://c.tenor.com/_n_jxpQJ7b4AAAAd/tenor.gif)
+*From ["Driver's Ed" sketch](https://youtu.be/-ZBwPmla8QQ?si=Sq0OMTp-VxmyyoYM), I Think You Should Leave*
 
 
 
