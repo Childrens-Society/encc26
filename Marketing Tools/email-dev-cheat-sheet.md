@@ -1,6 +1,6 @@
 # Email development cheat sheet
 
-This was meant to be a brief "cheat sheet" but it's became unwieldy. 
+This was meant to be a brief "cheat sheet" but it's became unwieldy, far more than a single sheet of A4 paper. 
 
 The structure:
 1. Useful resources
