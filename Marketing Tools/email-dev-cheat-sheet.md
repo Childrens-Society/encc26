@@ -65,7 +65,7 @@ It's blocked.
 > "Interactive elements such as Flash or JavaScript won't work in most email clients."
 > — [Brevo](https://help.brevo.com/hc/en-us/articles/6632412983186)
 
-This means form `<submit>` buttons also don't work as expected, because they depend on JS.
+This means form `<button type="submit">` buttons also don't work as expected, because they depend on JS.
 > "The submit button requires JavaScript to work properly, but JavaScript is forbidden."
 > — [Designmodo](https://designmodo.com/mailchimp-limitations-email/)
 
