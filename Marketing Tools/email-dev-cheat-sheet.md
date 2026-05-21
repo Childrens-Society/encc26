@@ -176,7 +176,7 @@ Always declare a DOCTYPE. Without it, email clients render in "quirks mode" and 
 
 `x-apple-disable-message-reformatting` prevents iOS Mail from resizing small-width emails. The MSO conditional comment forces a safe font stack in Outlook's Word renderer.
 
-NB - More about [https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Quirks_mode_and_standards_mode](quirks mode). Quirks mode is a legacy rendering mode that emulates the behaviour of old browsers. It causes unpredictable layout issues.
+NB - More about [quirks mode](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Quirks_mode_and_standards_mode). Quirks mode is a legacy rendering mode that emulates the behaviour of old browsers. It causes unpredictable layout issues.
 
 
 ### Fonts (font stacks)
@@ -214,9 +214,9 @@ EN SUPPORTS THIS
 ```
 Hello,
 
-We have a special offer for you this week.
+Paragraph one is here.
 
-View the offer: https://example.com/offer
+Relevant link: https://example.com/relevant-link
 
 To unsubscribe: https://example.com/unsubscribe
 ```
@@ -225,7 +225,8 @@ All links must be spelled out in full. There are no hyperlinks, no images, no fo
 
 
 ### Alt text for images
-This is the same as web dev but images are frequently blocked by default in email clients. Always include descriptive `alt` text. Accessibility tools also require it.
+This is the same as web dev but images are frequently blocked by default in email clients. 
+Always include descriptive `alt` text. Accessibility tools also require it.
 
 ```html
 <!-- Descriptive alt text for content images -->
@@ -242,10 +243,9 @@ This is the same as web dev but images are frequently blocked by default in emai
 ```
 
 ### Outlook and conditional comments
-Outlook on Windows uses the Microsoft Word rendering engine to display emails. This requires special handling via HTML conditional comments:
+Many versions of Outlook on Windows use the Microsoft Word rendering engine to display emails. This requires special handling via HTML conditional comments:
 > "The desktop versions of Outlook (2007–2019) utilize the Microsoft Word rendering engine to display HTML emails, which drastically limits support for modern web standards... The New Outlook for Windows (launched in 2023) abandons Word in favour of a modern web engine."
 > — [CaptainVerify](https://captainverify.com/blog/issues-sending-emails-outlook.html)
-
 
 Here's an example snippet for a centred, fixed-width container with a fluid fallback for all other clients:
 
