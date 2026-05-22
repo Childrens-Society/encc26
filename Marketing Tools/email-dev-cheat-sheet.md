@@ -62,7 +62,7 @@ There **do not seem to be enforced standards for email clients** as there are fo
 
 ### JavaScript
 It's blocked.
-> "Interactive elements such as Flash or JavaScript won't work in most email clients."
+> "Interactive elements such as... JavaScript won't work in most email clients."
 > — [Brevo](https://help.brevo.com/hc/en-us/articles/6632412983186)
 
 This means form `<button type="submit">` buttons also don't work as expected, because they depend on JS.
